@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '0gs9+o=)holwfn@h1dbg)8+w31z02o612o7v$6hasn33!7^aok'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://sentiment-ml-app.herokuapp.com/','*']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
