@@ -132,9 +132,9 @@ def input_sentiment(request):
         form = SentimentForm(request.POST)
         if form .is_valid():
             input_sentiment = form.cleaned_data['input_sentiment']
-            print(input_sentiment)
+            #print(input_sentiment)
             sentiment = find_sentiment(input_sentiment)
-            print(sentiment)
+            #print(sentiment)
             messages.success(request,'Your Sentiment: {}'.format(sentiment))
 
     form = SentimentForm()

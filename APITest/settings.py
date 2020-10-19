@@ -27,7 +27,7 @@ SECRET_KEY = '0gs9+o=)holwfn@h1dbg)8+w31z02o612o7v$6hasn33!7^aok'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://sentiment-ml-app.herokuapp.com/','*']
+ALLOWED_HOSTS = ['https://sentiment-ml-app.herokuapp.com/']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
