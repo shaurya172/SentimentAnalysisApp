@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
-
+import whitenoise
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +27,7 @@ SECRET_KEY = '0gs9+o=)holwfn@h1dbg)8+w31z02o612o7v$6hasn33!7^aok'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://sentiment-ml-app.herokuapp.com/']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,10 +148,24 @@ REST_FRAMEWORK = {
     )
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
 django_heroku.settings(locals())
+
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     db_from_env = dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(db_from_env)
+#     #Honor the 'X-forwarded-Proto' header for request.is_secure().
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#
+#     #Allow all host headers
+#     ALLOWED_HOSTS = ['https://sentiment-ml-app.herokuapp.com/']
+#     DEBUG = True
+#
+#     #Static asset configuration
+#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

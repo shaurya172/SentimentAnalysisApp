@@ -1,1 +1,1 @@
-web: gunicorn APITest.wsgi
+web: gunicorn APITest.wsgi --log-file -
